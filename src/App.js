@@ -5,7 +5,7 @@ const App = () => {
   const d=new Date();
   const dnew=d.toLocaleDateString();
   const [notes,setNotes] = useState([{
-    text:"Add some text in the GREEN BOX to add a Note , The website is under construction so the DELETION and SAVING will not work. (For Now)",
+    text:"Add some text in the GREEN BOX to add a Note , The website is under construction so the DELETION will not work. (For Now)",
     date:dnew,
     id: nanoid(),
   },
