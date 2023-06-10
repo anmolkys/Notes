@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import {nanoid} from 'nanoid';
+import NotesList from "./components/NotesList";
+const App = () => {
+  const d=new Date();
+  const dnew=d.toLocaleDateString();
+  const [notes,setNotes] = useState([{
+    text:"Add some text in the GREEN BOX to add a Note , The website is under construction so the DELETION and SAVING will not work. (For Now)",
+    date:dnew,
+    id: nanoid(),
+  },
+  ]);
 
-function App() {
+  useEffect(()=>{
+    const saved=JSON.parse(localStorage.getItem('react-notes-yssmvv-data'));
+  
+    if(saved){
+      setNotes(saved);
+    }
+  },[])
+
+
+  useEffect(()=> {
+    localStorage.setItem('react-notes-yssmvv-data', JSON.stringify(notes)
+    );
+  }, [notes]);
+
+  const addNote = (text) =>{
+    const date = new Date();
+    const newNote = {
+      text: text,
+      date: date.toLocaleDateString(),
+      id: nanoid(),
+    }
+    const newNotes = [...notes,newNote];
+    setNotes(newNotes);
+  }
+
+  const deleteNote = (id) =>{
+    const newList = notes.filter((note) => note.id!==id);
+    setNotes(newList);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

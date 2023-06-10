@@ -1,13 +1,64 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+    background-image: url("https://i.pinimg.com/originals/17/3c/1c/173c1c3394277ceace67e8e63a0b7d77.gif");
+    background-size: cover;
+}
+.note{
+    background-color: #fef68a;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: pre-wrap;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.note-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container{
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.noteslist{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+}
+
+.note.new{
+    background-color: #67d7cc;
+
+}
+textarea{
+    border: none;
+    resize: none;
+    background-color: #67d7cc;
+}
+
+textarea:focus{
+    outline: none;
+}
+.save{
+    background-color: rgb(235, 227, 227);
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;
+}
+
+.save:hover{
+    background-color: rgb(49, 45, 45);
+    cursor: pointer;
+    color: aliceblue;
+}
+.delete{
+    cursor: pointer;
 }
