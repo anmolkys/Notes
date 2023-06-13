@@ -12,6 +12,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     white-space: pre-wrap;
+    overflow: hidden;
 }
 
 .note-footer{
@@ -62,3 +63,35 @@ textarea:focus{
 .delete{
     cursor: pointer;
 }
+
+.Search{
+    display: flex;
+    align-items: center;
+    background-color: rgb(233,233,233);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 1.5em;
+
+}
+
+.Search input{
+    border: none;
+    background-color: rgb(233,233,233);
+}
+
+.Search input:focus{
+    outline: none;
+}
+
+
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    body{
+        background-image: url("https://64.media.tumblr.com/e7f18b59e39a15c8a3b02131e5e13243/tumblr_p5n35wTfJ71rnbw6mo1_640.gif");
+        background-size:cover;
+    }
+    .save{
+        size: 150% 150%;
+    }    
+} 
+

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {nanoid} from 'nanoid';
 import NotesList from "./components/NotesList";
+import Search from "./components/Search";
 const App = () => {
   const d=new Date();
   const dnew=d.toLocaleDateString();
@@ -38,11 +39,15 @@ const App = () => {
 
   const deleteNote = (id) =>{
     const newList = notes.filter((note) => note.id!==id);
-    setNotes(newList);
+    console.log(newList)
   }
+
+  const [search,setSearch] = useState('');
+
 
   return (
     <div className="container">
+      <Search handleSearch={setSearch}></Search>
       <NotesList notes={notes} handleAddNote={addNote} handleDeleteNote={deleteNote}/>
     </div>
   )
